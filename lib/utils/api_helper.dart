@@ -7,13 +7,13 @@ class APIHelper {
 
   APIHelper._();
 
-  Future<TranslatorModel?> translatorAPICall(String edit,String trans) async {
+  Future<TranslatorModel?> translatorAPICall(String edit, String source, String trans) async {
     String apiLink = "https://text-translator2.p.rapidapi.com/translate";
     var response = await http.post(Uri.parse(apiLink), headers: {
       "X-RapidAPI-Key": "588b0dcfc1msh755d7bf01729233p1b3108jsn09e365ae514d",
       "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
     }, body: {
-      "source_language": "en",
+      "source_language": source,
       "target_language": trans,
       "text": edit
     });
